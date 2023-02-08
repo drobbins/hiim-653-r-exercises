@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>HIIM 653 Exercise 1</title>
+  <style>
+    .exercise {
+      margin: 50px;
+    }
+
+    [data-datacamp-exercise] {
+        visibility: hidden;
+      }
+  </style>
+  <script async src="https://cdn.datacamp.com/dcl-react-dev.js.gz"></script>
+</head>
+<body>
+    <div data-datacamp-exercise data-lang="r">
+        <code data-type="pre-exercise-code">
+            # Load readr library and create csv file.
+            library(tibble)
+            library(dplyr)
+            patients_df <- data.frame(
+                id = c(10,11,12,13),
+                name = c('sai','ram','deepika','sahithi'),
+                gender = c('M','M',NA,'F'),
+                dob = as.Date(c('1990-10-02','1981-3-24','1987-6-14','1985-8-16')),
+                state = c('CA','NY','AL','TX'),
+                score = c(23,23,25,26)
+            )
+            patients <- as_tibble(patients_df)
+        </code>
+        <code data-type="sample-code">
+            # Load the library ggplot2
+
+            # Scatter-plot the data in the patients variable with:
+            # x-axis: dob
+            # y-axis: score
+
+        </code>
+        <code data-type="solution">
+            # Load the library ggplot2
+            library(ggplot2)
+
+            # Scatter-plot the data in the patients variable with:
+            # x-axis: dob
+            # y-axis: score
+            ggplot(patients, aes(x=dob, y=score)) + geom_point()
+
+        </code>
+        <code data-type="sct">
+            nggplot2m <- "Did you use `library(ggplot2)` to load the library ggplot2?"
+            ncm <- "Did you call `ggplot()`, `aes()`, and `geom_point()`, in the correct order, to create the plot?"
+            arg_dns <- "Did you specify the `data` parameter for `ggplot()`?"
+            arg_dinc <- "Did you specify `patients` as the `data` parameter for `ggplot()`?"
+            arg_ns <- "Did you specify the `x` and `y` axes?"
+            arg_inc <- "Did you specify the correct parameters for `aes()`: `x==dob` and `y==score`?"
+            ex() %>% {
+                check_library(., "ggplot2", not_called_msg = nggplot2m, incorrect_msg = nggplot2m)
+                check_function(., "ggplot", not_called_msg = ncm) %>% check_arg("data") %>% check_equal()
+                check_function(., "aes", not_called_msg = ncm) %>% {
+                  check_arg(., "x", arg_not_specified_msg = arg_ns) %>% check_equal(eval = FALSE, incorrect_msg = arg_inc) 
+                  check_arg(., "y", arg_not_specified_msg = arg_ns) %>% check_equal(eval = FALSE, incorrect_msg = arg_inc)
+                }
+                check_function(., "geom_point", not_called_msg = ncm)
+            }
+            success_msg("Great job! Continue to the next exercise.")
+        </code>
+        <div data-type="hint">
+            From <a href="https://r4ds.hadley.nz/data-visualize.html">R for Data Science on Visualize</a>, we can use the function <code>ggplot</code> like <code>ggplot(dataset, aes(x = x_axis_variable, y = y_axis_variable)) + geom_point()</code> to make a simple scatter plot.
+        </div>
+    </div>
+</body>
+</html>

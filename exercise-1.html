@@ -15,44 +15,32 @@
   <script async src="https://cdn.datacamp.com/dcl-react-dev.js.gz"></script>
 </head>
 <body>
-  <div class="exercise">
-    <div class="title">
-      <h2>Variable assignment (2)</h2>
+    <div data-datacamp-exercise data-lang="r">
+        <code data-type="pre-exercise-code"># no pec</code>
+        <code data-type="sample-code">
+            # Assign the value 5 to the variable my_score
+
+
+            # Print out the value of the variable my_score
+        </code>
+        <code data-type="solution">
+            # Assign the value 5 to the variable my_score
+            my_score <- 5
+
+            # Print out the value of the variable my_score
+            my_score
+        </code>
+        <code data-type="sct">
+            test_object("my_score",
+                undefined_msg = "Please make sure to define a variable `my_score`.",
+                incorrect_msg = "Make sure that you assign the correct value to `my_score`.")
+            test_output_contains("my_score",
+                incorrect_msg = "Have you explicitly told R to print the `my_score` variable to the console?")
+            success_msg("Great job! Continue to the next exercise.")
+        </code>
+        <div data-type="hint">
+            Remember that in R you can use the assignment operator <code>&lt;-</code>. You can use <code>=</code> instead, but <code>&lt;-</code> is widely preferred in the R community.
+        </div>
     </div>
-    <div data-datacamp-exercise data-lang="r" data-height="350">
-      <code data-type="pre-exercise-code"># no pec</code>
-      <code data-type="sample-code">
-        # Assign the value 5 to the variable my_apples
-
-
-        # Print out the value of the variable my_apples
-      </code>
-      <code data-type="solution">
-        # Assign the value 5 to the variable my_apples
-        my_apples &lt;- 5
-
-        # Print out the value of the variable my_apples
-        my_apples
-      </code>
-      <code data-type="sct">
-        test_object(&quot;my_apples&quot;,
-        undefined_msg = &quot;Please make sure to define a variable `my_apples`.&quot;,
-        incorrect_msg = &quot;Make sure that you assign the correct value to `my_apples`.&quot;)
-        test_output_contains(&quot;my_apples&quot;, incorrect_msg = &quot;Have you
-        explicitly
-        told R to print out the `my_apples` variable to the console?&quot;)
-        success_msg(&quot;Great! Continue to the next exercise!&quot;)
-      </code>
-      <div data-type="hint">
-        <p>Remember that if you want to assign a number or an object to a variable in R, you
-          can
-          make use of the assignment operator
-          <code>&lt;-</code>. Alternatively, you can use
-          <code>=</code>, but
-          <code>&lt;-</code> is widely preferred in the R community.
-        </p>
-      </div>
-    </div>
-  </div>
 </body>
 </html>

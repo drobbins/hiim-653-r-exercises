@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>HIIM 653 Exercise 1</title>
+  <style>
+    .exercise {
+      margin: 50px;
+    }
+
+    [data-datacamp-exercise] {
+        visibility: hidden;
+      }
+  </style>
+  <script async src="https://cdn.datacamp.com/dcl-react-dev.js.gz"></script>
+</head>
+<body>
+    <div data-datacamp-exercise data-lang="r">
+        <code data-type="pre-exercise-code">
+            # Load readr library and create csv file.
+            library(tibble)
+            library(dplyr)
+            patients_df <- data.frame(
+                id = c(10,11,12,13),
+                name = c('sai','ram','deepika','sahithi'),
+                gender = c('M','M',NA,'F'),
+                dob = as.Date(c('1990-10-02','1981-3-24','1987-6-14','1985-8-16')),
+                state = c('CA','NY','AL','TX'),
+                score = c(23,23,25,26)
+            )
+            patients <- as_tibble(patients_df)
+        </code>
+        <code data-type="sample-code">
+            # Print the patients variable (already loaded for you),
+            # filtered to only include patients with score equal to 23
+
+        </code>
+        <code data-type="solution">
+            # Print the patients variable (already loaded for you),
+            # filtered to only include patients with score equal to 23
+            patients %>% filter(score==23)
+
+        </code>
+        <code data-type="sct">
+            ncm <- "Did you use `filter` function to print summary statistics?"
+            arg_ns <- "Did you specify the `.data` parameter for `filter` to filter by?"
+            arg_inc <- "Did you specify `score==5` as the `.data` parameter for `filter` to filter by?"
+            ex() %>% {
+                check_function(., "filter") %>% check_arg(., ".data", arg_not_specified_msg = arg_ns) %>% check_equal(incorrect_msg = arg_inc)
+                check_output(., "11 ram   M      1981-03-24 NY       23", missing_msg="Did you use `filter` function to print summary statistics? Did you specify `score==5` as the `.data` parameter for `filter` to filter by?")
+            }
+            success_msg("Great job! Continue to the next exercise.")
+        </code>
+        <div data-type="hint">
+            You can use the `filter` function to filter output of a printed variable by paramters. e.g. `dogs %>% filter(score==5)`.
+        </div>
+    </div>
+</body>
+</html>

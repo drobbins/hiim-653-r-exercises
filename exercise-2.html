@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>HIIM 653 Exercise 1</title>
+  <style>
+    .exercise {
+      margin: 50px;
+    }
+
+    [data-datacamp-exercise] {
+        visibility: hidden;
+      }
+  </style>
+  <script async src="https://cdn.datacamp.com/dcl-react-dev.js.gz"></script>
+</head>
+<body>
+    <div data-datacamp-exercise data-lang="r">
+        <code data-type="pre-exercise-code">
+            # Load readr library and create csv file.
+            library(readr)
+            patients <- data.frame(
+                id = c(10,11,12,13),
+                name = c('sai','ram','deepika','sahithi'),
+                gender = c('M','M',NA,'F'),
+                dob = as.Date(c('1990-10-02','1981-3-24','1987-6-14','1985-8-16')),
+                state = c('CA','NY','AL','TX')
+            )
+            write_csv(patients, "patients.csv")
+        </code>
+        <code data-type="sample-code">
+            # Load the file patients.csv and assign it to the variable patients.
+
+        </code>
+        <code data-type="solution">
+            # Load the file patients.csv and assign it to the variable patients.
+            patients <- read_csv("patients.csv")
+
+        </code>
+        <code data-type="sct">
+            ncm <- "Did you use `read_csv` to read patients.csv?"
+            arg_ns <- "Did you specify the file for `read_csv`?"
+            arg_inc <- "Did you specify patients.csv as the file for `read_csv`?"
+            ex() %>% 
+                check_function("read_csv") %>% 
+                check_arg(., "file", arg_not_specified_msg = arg_ns) %>% 
+                check_equal(incorrect_msg = arg_inc)
+            success_msg("Great job! Continue to the next exercise.")
+        </code>
+        <div data-type="hint">
+            You can use the `read_csv` function from the readr library (already loaded for you) to read CSV files.
+        </div>
+    </div>
+</body>
+</html>
